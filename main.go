@@ -14,8 +14,13 @@ import (
 func main() {
 	pokemonRepository := repository.PokemonRepositoryImp()
 	pokemonService := service.PokemonServiceImp(pokemonRepository)
+
+	starWarsRepository := repository.StarWarsRepositoryImp()
+	starWarsService := service.StarWarsServiceImp(starWarsRepository)
+
 	rootCmd := &cobra.Command{}
 	rootCmd.AddCommand(cmd.InitPokemonCmd(pokemonService))
+	rootCmd.AddCommand(cmd.InitStarWarsCmd(starWarsService))
 	err := rootCmd.Execute()
 	if err != nil {
 		return
