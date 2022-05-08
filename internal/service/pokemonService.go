@@ -6,13 +6,13 @@ import (
 )
 
 type pokeService struct {
-	pokemonRepository repository.PokemonRepository
+	repository repository.PokemonRepository
 }
 
-func PokemonServiceImp(pokeRepo repository.PokemonRepository) PokemonService {
-	return pokeService{pokemonRepository: pokeRepo}
+func PokemonServiceImp(repository repository.PokemonRepository) PokemonService {
+	return pokeService{repository: repository}
 }
 
 func (service pokeService) FetchPokemons() (models.PokemonResult, error) {
-	return service.pokemonRepository.GetPokemons()
+	return service.repository.GetPokemons()
 }

@@ -5,14 +5,14 @@ import (
 	"github.com/mayalaat/api-cli/internal/repository"
 )
 
-type warService struct {
-	starWarsRepository repository.StarWarsRepository
+type warsService struct {
+	repository repository.StarWarsRepository
 }
 
-func StarWarsServiceImp(warsRepo repository.StarWarsRepository) StarWarsService {
-	return warService{starWarsRepository: warsRepo}
+func StarWarsServiceImp(repository repository.StarWarsRepository) StarWarsService {
+	return warsService{repository: repository}
 }
 
-func (service warService) FetchStarWars() (models.StarWarsResult, error) {
-	return service.starWarsRepository.GetStarWars()
+func (service warsService) FetchStarWars() (models.StarWarsResult, error) {
+	return service.repository.GetStarWars()
 }

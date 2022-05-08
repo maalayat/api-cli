@@ -9,19 +9,19 @@ import (
 )
 
 const (
-	warUrl = "https://swapi.dev/api/films/"
+	punkUrl = "https://api.punkapi.com/v2/beers"
 )
 
-type warRepo struct {
+type punkRepo struct {
 	url string
 }
 
-func StarWarsRepositoryImp() StarWarsRepository {
-	return warRepo{url: warUrl}
+func PunkRepositoryImp() PunkRepository {
+	return punkRepo{url: punkUrl}
 }
 
-func (w warRepo) GetStarWars() (data models.StarWarsResult, err error) {
-	response, err := http.Get(w.url)
+func (repository punkRepo) GetPunks() (data []models.Punk, err error) {
+	response, err := http.Get(repository.url)
 	if err != nil {
 		fmt.Print(err)
 	}

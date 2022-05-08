@@ -9,3 +9,7 @@ type PokemonRepository interface {
 type StarWarsRepository interface {
 	GetStarWars() (models.StarWarsResult, error)
 }
+
+type PunkRepository interface {
+	GetPunks() ([]models.Punk, error)
+}

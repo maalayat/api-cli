@@ -18,9 +18,13 @@ func main() {
 	starWarsRepository := repository.StarWarsRepositoryImp()
 	starWarsService := service.StarWarsServiceImp(starWarsRepository)
 
+	punkRepository := repository.PunkRepositoryImp()
+	punkService := service.PunkServiceImp(punkRepository)
+
 	rootCmd := &cobra.Command{}
 	rootCmd.AddCommand(cmd.InitPokemonCmd(pokemonService))
 	rootCmd.AddCommand(cmd.InitStarWarsCmd(starWarsService))
+	rootCmd.AddCommand(cmd.InitPunkCmd(punkService))
 	err := rootCmd.Execute()
 	if err != nil {
 		return
