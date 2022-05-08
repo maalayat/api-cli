@@ -1,6 +1,6 @@
 package models
 
-type Data struct {
+type PokemonResult struct {
 	Count    int        `json:"count"`
 	Next     string     `json:"next"`
 	Previous string     `json:"previous"`

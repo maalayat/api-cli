@@ -5,14 +5,14 @@ import (
 	"github.com/mayalaat/api-cli/internal/repository"
 )
 
-type service struct {
+type pokeService struct {
 	pokemonRepository repository.PokemonRepository
 }
 
-func PokemonServiceImp(repo repository.PokemonRepository) PokemonService {
-	return service{pokemonRepository: repo}
+func PokemonServiceImp(pokeRepo repository.PokemonRepository) PokemonService {
+	return pokeService{pokemonRepository: pokeRepo}
 }
 
-func (serv service) FetchPokemons() (models.Data, error) {
-	return serv.pokemonRepository.GetPokemons()
+func (service pokeService) FetchPokemons() (models.PokemonResult, error) {
+	return service.pokemonRepository.GetPokemons()
 }

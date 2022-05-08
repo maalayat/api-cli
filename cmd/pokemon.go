@@ -17,9 +17,9 @@ func InitPokemonCmd(pokemonService service.PokemonService) *cobra.Command {
 	return pokemonCmd
 }
 
-type CobraFn func(cmd *cobra.Command, args []string)
+type PokemonCobraFn func(cmd *cobra.Command, args []string)
 
-func runPokemonFn(pokemonService service.PokemonService) CobraFn {
+func runPokemonFn(pokemonService service.PokemonService) PokemonCobraFn {
 	return func(cmd *cobra.Command, args []string) {
 		pokemons, err := pokemonService.FetchPokemons()
 		if err != nil {

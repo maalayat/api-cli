@@ -13,16 +13,16 @@ const (
 	pokeUrl = "https://pokeapi.co/api/v2/pokemon"
 )
 
-type repository struct {
+type pokeRepo struct {
 	url string
 }
 
 func PokemonRepositoryImp() PokemonRepository {
-	return &repository{url: pokeUrl}
+	return &pokeRepo{url: pokeUrl}
 }
 
-func (repo *repository) GetPokemons() (data models.Data, err error) {
-	response, err := http.Get(repo.url)
+func (pokeRepo *pokeRepo) GetPokemons() (data models.PokemonResult, err error) {
+	response, err := http.Get(pokeRepo.url)
 	if err != nil {
 		fmt.Print(err)
 	}
