@@ -1,15 +1,18 @@
 package service
 
-import "github.com/mayalaat/api-cli/internal/models"
+import (
+	"github.com/mayalaat/api-cli/internal/models"
+	"sync"
+)
 
 type PokemonService interface {
-	FetchPokemons() (models.PokemonResult, error)
+	FetchPokemons(*sync.WaitGroup) (models.PokemonResult, error)
 }
 
 type StarWarsService interface {
-	FetchStarWars() (models.StarWarsResult, error)
+	FetchStarWars(*sync.WaitGroup) (models.StarWarsResult, error)
 }
 
 type PunkService interface {
-	FetchPunkBeers() ([]models.Punk, error)
+	FetchPunkBeers(*sync.WaitGroup) ([]models.Punk, error)
 }

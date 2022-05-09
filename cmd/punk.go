@@ -20,7 +20,7 @@ type PunkCobraFn func(cmd *cobra.Command, args []string)
 
 func runPunkFn(service service.PunkService) PunkCobraFn {
 	return func(cmd *cobra.Command, args []string) {
-		beers, err := service.FetchPunkBeers()
+		beers, err := service.FetchPunkBeers(nil)
 		if err != nil {
 			fmt.Print(err)
 		}

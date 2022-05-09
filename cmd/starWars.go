@@ -20,7 +20,7 @@ type StarWarsCobraFn func(cmd *cobra.Command, args []string)
 
 func runStarWarsFn(service service.StarWarsService) StarWarsCobraFn {
 	return func(cmd *cobra.Command, args []string) {
-		starWars, err := service.FetchStarWars()
+		starWars, err := service.FetchStarWars(nil)
 		if err != nil {
 			fmt.Print(err)
 		}

@@ -21,7 +21,7 @@ type PokemonCobraFn func(cmd *cobra.Command, args []string)
 
 func runPokemonFn(pokemonService service.PokemonService) PokemonCobraFn {
 	return func(cmd *cobra.Command, args []string) {
-		pokemons, err := pokemonService.FetchPokemons()
+		pokemons, err := pokemonService.FetchPokemons(nil)
 		if err != nil {
 			fmt.Print(err)
 		}
