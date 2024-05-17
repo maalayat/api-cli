@@ -25,6 +25,7 @@ func main() {
 	rootCmd.AddCommand(cmd.InitPokemonCmd(pokemonService))
 	rootCmd.AddCommand(cmd.InitStarWarsCmd(starWarsService))
 	rootCmd.AddCommand(cmd.InitPunkCmd(punkService))
+	rootCmd.AddCommand(cmd.InitAllCmd(pokemonService, starWarsService, punkService))
 	err := rootCmd.Execute()
 	if err != nil {
 		return
