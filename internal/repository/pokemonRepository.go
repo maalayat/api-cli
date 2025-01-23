@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/mayalaat/api-cli/internal/models"
+	"github.com/maalayat/api-cli/internal/models"
 )
 
 const (

@@ -3,7 +3,7 @@ package repository
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/mayalaat/api-cli/internal/models"
+	"github.com/maalayat/api-cli/internal/models"
 	"io/ioutil"
 	"net/http"
 )

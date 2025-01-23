@@ -5,9 +5,9 @@ Copyright © 2022 Alejandro Ayala <alejandro.ayala@solmedia.ec>
 package main
 
 import (
-	"github.com/mayalaat/api-cli/cmd"
-	"github.com/mayalaat/api-cli/internal/repository"
-	"github.com/mayalaat/api-cli/internal/service"
+	"github.com/maalayat/api-cli/cmd"
+	"github.com/maalayat/api-cli/internal/repository"
+	"github.com/maalayat/api-cli/internal/service"
 	"github.com/spf13/cobra"
 )
 

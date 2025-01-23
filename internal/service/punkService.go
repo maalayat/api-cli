@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/mayalaat/api-cli/internal/models"
-	"github.com/mayalaat/api-cli/internal/repository"
+	"github.com/maalayat/api-cli/internal/models"
+	"github.com/maalayat/api-cli/internal/repository"
 )
 
 type punkService struct {

@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/mayalaat/api-cli/internal/service"
+	"github.com/maalayat/api-cli/internal/service"
 
 	"github.com/spf13/cobra"
 )
