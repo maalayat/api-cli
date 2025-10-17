@@ -24,6 +24,10 @@ func runStarWarsFn(service service.StarWarsService) StarWarsCobraFn {
 		if err != nil {
 			fmt.Print(err)
 		}
-		fmt.Println(starWars)
+		if starWars.Results != nil {
+			for _, film := range *starWars.Results {
+				fmt.Printf("Title: %s, EpisodeId: %d, Director: %s, ReleaseDate: %s\n", film.Title, film.EpisodeId, film.Director, film.ReleaseDate)
+			}
+		}
 	}
 }
