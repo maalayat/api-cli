@@ -63,7 +63,7 @@ go build -o api-cli main.go
 go run main.go pokemon
 
 # Fetch Star Wars films
-go run main.go starwars
+go run main.go starWars
 
 # Fetch beer data
 go run main.go punk
