@@ -3,7 +3,7 @@ package repository
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 
 	"github.com/maalayat/api-cli/internal/models"
@@ -27,7 +27,7 @@ func (pokeRepo *pokeRepo) GetPokemons() (data models.PokemonResult, err error) {
 		fmt.Print(err)
 	}
 
-	contents, err := ioutil.ReadAll(response.Body)
+	contents, err := io.ReadAll(response.Body)
 	if err != nil {
 		fmt.Println(err)
 	}

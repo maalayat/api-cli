@@ -25,7 +25,11 @@ func runPokemonFn(pokemonService service.PokemonService) PokemonCobraFn {
 		if err != nil {
 			fmt.Print(err)
 		}
-		fmt.Println(pokemons)
+		if pokemons.Results != nil {
+			for _, pokemon := range *pokemons.Results {
+				fmt.Printf("Name: %s, URL: %s\n", pokemon.Name, pokemon.Url)
+			}
+		}
 
 	}
 }
