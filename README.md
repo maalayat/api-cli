@@ -40,7 +40,7 @@ internal/
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/maalayat/api-cli.git
 cd api-cli
 ```
 
