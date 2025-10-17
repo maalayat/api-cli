@@ -4,29 +4,29 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/maalayat/api-cli/internal/models"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
 const (
-	punkUrl = "https://api.punkapi.com/v2/beers"
+	breweryUrl = "https://api.openbrewerydb.org/v1/breweries"
 )
 
-type punkRepo struct {
+type breweryRepo struct {
 	url string
 }
 
-func PunkRepositoryImp() PunkRepository {
-	return punkRepo{url: punkUrl}
+func BreweryRepositoryImp() BreweryRepository {
+	return breweryRepo{url: breweryUrl}
 }
 
-func (repository punkRepo) GetPunks() (data []models.Punk, err error) {
+func (repository breweryRepo) GetBreweries() (data []models.Brewery, err error) {
 	response, err := http.Get(repository.url)
 	if err != nil {
 		fmt.Print(err)
 	}
 
-	body, err := ioutil.ReadAll(response.Body)
+	body, err := io.ReadAll(response.Body)
 	if err != nil {
 		fmt.Println(err)
 	}

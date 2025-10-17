@@ -28,13 +28,13 @@ type StarWars struct {
 	ReleaseDate  string `json:"release_date"`
 }
 
-type Punk struct {
-	Id          int     `json:"id"`
-	Name        string  `json:"name"`
-	Tagline     string  `json:"tagline"`
-	FirstBrewed string  `json:"first_brewed"`
-	Description string  `json:"description"`
-	ImageUrl    string  `json:"image_url"`
-	Abv         float32 `json:"abv"`
-	Ibu         float32 `json:"ibu"`
+type Brewery struct {
+	Id          string `json:"id"`
+	Name        string `json:"name"`
+	BreweryType string `json:"brewery_type"`
+	City        string `json:"city"`
+	State       string `json:"state"`
+	Country     string `json:"country"`
+	Phone       string `json:"phone"`
+	Website     string `json:"website_url"`
 }

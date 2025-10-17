@@ -10,6 +10,6 @@ type StarWarsService interface {
 	FetchStarWars() (models.StarWarsResult, error)
 }
 
-type PunkService interface {
-	FetchPunkBeers() ([]models.Punk, error)
+type BreweryService interface {
+	FetchBreweries() ([]models.Brewery, error)
 }

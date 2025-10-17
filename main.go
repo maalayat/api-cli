@@ -1,6 +1,5 @@
 /*
 Copyright © 2022 Alejandro Ayala <alejandro.ayala@solmedia.ec>
-
 */
 package main
 
@@ -18,14 +17,14 @@ func main() {
 	starWarsRepository := repository.StarWarsRepositoryImp()
 	starWarsService := service.StarWarsServiceImp(starWarsRepository)
 
-	punkRepository := repository.PunkRepositoryImp()
-	punkService := service.PunkServiceImp(punkRepository)
+	breweryRepository := repository.BreweryRepositoryImp()
+	breweryService := service.BreweryServiceImp(breweryRepository)
 
 	rootCmd := &cobra.Command{}
 	rootCmd.AddCommand(cmd.InitPokemonCmd(pokemonService))
 	rootCmd.AddCommand(cmd.InitStarWarsCmd(starWarsService))
-	rootCmd.AddCommand(cmd.InitPunkCmd(punkService))
-	rootCmd.AddCommand(cmd.InitAllCmd(pokemonService, starWarsService, punkService))
+	rootCmd.AddCommand(cmd.InitBreweryCmd(breweryService))
+	rootCmd.AddCommand(cmd.InitAllCmd(pokemonService, starWarsService, breweryService))
 	err := rootCmd.Execute()
 	if err != nil {
 		return

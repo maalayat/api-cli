@@ -9,11 +9,11 @@ import (
 func InitAllCmd(
 	pokeService service.PokemonService,
 	warsService service.StarWarsService,
-	punkService service.PunkService) *cobra.Command {
+	breweryService service.BreweryService) *cobra.Command {
 	allCmd := &cobra.Command{
 		Use:   "all",
 		Short: "A brief description of your command",
-		Run:   runAllFn(pokeService, warsService, punkService),
+		Run:   runAllFn(pokeService, warsService, breweryService),
 	}
 	return allCmd
 }
@@ -23,7 +23,7 @@ type AllCobraFn func(cmd *cobra.Command, args []string)
 func runAllFn(
 	pokeService service.PokemonService,
 	warsService service.StarWarsService,
-	punkService service.PunkService) AllCobraFn {
+	breweryService service.BreweryService) AllCobraFn {
 	return func(cmd *cobra.Command, args []string) {
 		fmt.Println("FetchPokemons Begin")
 		_, err := pokeService.FetchPokemons()
@@ -39,9 +39,9 @@ func runAllFn(
 			fmt.Print(err)
 		}
 
-		fmt.Println("FetchPunkBeers Begin")
-		_, err = punkService.FetchPunkBeers()
-		fmt.Println("FetchPunkBeers Done")
+		fmt.Println("FetchBreweries Begin")
+		_, err = breweryService.FetchBreweries()
+		fmt.Println("FetchBreweries Done")
 		if err != nil {
 			fmt.Print(err)
 		}

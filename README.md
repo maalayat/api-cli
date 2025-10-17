@@ -1,12 +1,12 @@
 # API CLI
 
-A Go CLI application that fetches data from multiple external APIs (Pokemon, Star Wars, and Punk Beer) using a clean architecture pattern with dependency injection.
+A Go CLI application that fetches data from multiple external APIs (Pokemon, Star Wars, and Open Brewery DB) using a clean architecture pattern with dependency injection.
 
 ## Features
 
 - **Pokemon API**: Fetch Pokemon data from PokeAPI
 - **Star Wars API**: Retrieve Star Wars films information
-- **Punk Beer API**: Get craft beer data
+- **Brewery API**: Get brewery data from Open Brewery DB
 - **All APIs**: Fetch data from all APIs sequentially in one command
 
 ## Architecture
@@ -15,7 +15,7 @@ The project follows a 3-layer clean architecture with clear separation of concer
 
 ```
 main.go              # Dependency injection & Cobra command wiring
-cmd/                 # Cobra command handlers (pokemon.go, starWars.go, punk.go, all.go)
+cmd/                 # Cobra command handlers (pokemon.go, starWars.go, brewery.go, all.go)
 internal/
   models/            # API response structs with json tags
   repository/        # HTTP client implementations per API
@@ -24,7 +24,7 @@ internal/
 
 ### Key Patterns
 
-- **Domain Separation**: Each API (Pokemon, StarWars, Punk) has its own repository, service, and command triple
+- **Domain Separation**: Each API (Pokemon, StarWars, Brewery) has its own repository, service, and command triple
 - **Dependency Injection**: Clean dependency flow from Repository → Service → Command → RootCmd
 - **Interface-based Design**: All implementations return interface types for flexibility
 - **Error Handling**: Non-blocking error handling that prints errors but continues execution
@@ -65,8 +65,8 @@ go run main.go pokemon
 # Fetch Star Wars films
 go run main.go starWars
 
-# Fetch beer data
-go run main.go punk
+# Fetch brewery data
+go run main.go brewery
 
 # Fetch all APIs sequentially
 go run main.go all
@@ -80,7 +80,7 @@ go run main.go --help
 ```bash
 ./api-cli pokemon
 ./api-cli starwars
-./api-cli punk
+./api-cli brewery
 ./api-cli all
 ```
 
@@ -90,7 +90,7 @@ The application fetches data from the following public APIs:
 
 - **Pokemon**: `https://pokeapi.co/api/v2/pokemon`
 - **Star Wars**: `https://swapi.dev/api/films/`
-- **Punk Beer**: `https://api.punkapi.com/v2/beers`
+- **Brewery**: `https://api.openbrewerydb.org/v1/breweries`
 
 ## Project Structure
 
@@ -101,7 +101,7 @@ The application fetches data from the following public APIs:
 ├── cmd/                             # Command layer (Cobra commands)
 │   ├── all.go                       # Command to fetch all APIs
 │   ├── pokemon.go                   # Pokemon API command
-│   ├── punk.go                      # Punk Beer API command
+│   ├── brewery.go                   # Brewery API command
 │   └── starWars.go                  # Star Wars API command
 └── internal/                        # Internal application code
     ├── models/                      # Data models
@@ -109,12 +109,12 @@ The application fetches data from the following public APIs:
     ├── repository/                  # Data access layer
     │   ├── repositories.go          # Repository interfaces
     │   ├── pokemonRepository.go     # Pokemon API client
-    │   ├── punkRepository.go        # Punk Beer API client
+    │   ├── breweryRepository.go     # Brewery API client
     │   └── starWarsRepository.go    # Star Wars API client
     └── service/                     # Business logic layer
         ├── services.go              # Service interfaces
         ├── pokemonService.go        # Pokemon business logic
-        ├── punkService.go           # Punk Beer business logic
+        ├── breweryService.go        # Brewery business logic
         └── starWarsService.go       # Star Wars business logic
 ```
 
